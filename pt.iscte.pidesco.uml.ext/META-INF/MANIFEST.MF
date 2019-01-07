@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ext
+Bundle-SymbolicName: pt.iscte.pidesco.uml.ext;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: pt.iscte.pidesco.uml.ext.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: pt.iscte.pidesco.uml.ext
+Import-Package: org.osgi.framework;version="1.3.0",
+ pt.iscte.pidesco.uml.extensibility
+Bundle-ActivationPolicy: lazy
+Require-Bundle: pt.iscte.pidesco.uml;bundle-version="1.0.0"
