@@ -99,8 +99,6 @@ public class UMLClass extends Figure{
 			@Override
 			public void mousePressed(MouseEvent me) {
 				// TODO Auto-generated method stub
-				System.out.println("Clickei -> " + name.getText());
-				
 				buildActions(name.getText());
 								
 			}

@@ -139,8 +139,6 @@ public class ClassChecker extends ASTVisitor {
 	@Override
 	public boolean visit(EnumDeclaration node) {
 		String type = "Enumeration";
-		
-//		node.enumConstants().get(0).toString();
 
 		String name = node.getName().toString();
 
@@ -163,7 +161,6 @@ public class ClassChecker extends ASTVisitor {
 		else
 			innerClasses.add(newUmlClass);
 
-		//System.out.println("Parsing class " + name + ", starting on line " + sourceLine(node));
 		return true;
 	}
 
@@ -185,6 +182,6 @@ public class ClassChecker extends ASTVisitor {
 				innerClasses.get(innerClasses.size()-1).getAttributesCompartment().add(attribute);
 			
 		}
-		return false; // false to avoid child VariableDeclarationFragment to be processed again
+		return false;
 	}
 }

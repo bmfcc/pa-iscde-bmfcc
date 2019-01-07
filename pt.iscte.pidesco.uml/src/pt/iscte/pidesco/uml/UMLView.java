@@ -91,18 +91,8 @@ public class UMLView implements PidescoView {
 		viewer.setContentProvider(new ZestNodeContentProvider());
 		viewer.setLabelProvider(new ZestFigureProvider());
 
-		//List<UMLClass> figureList = new ArrayList<>();
-		
 		List<Figure> figureList = umlServices.getUMLFigure(classList);
-
-		/*for(String classToFigure : classList) {
-			System.out.println(classToFigure);
-			ClassChecker checker = new ClassChecker(classToFigure);
-			JavaParser.parse(classToFigure, checker);
-			figureList.add(checker.getUMLClass());
-			figureList.addAll(checker.getInnerClasses());
-		}*/
-
+		
 		viewer.setInput(figureList);
 		viewer.setLayoutAlgorithm(new TreeLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 		viewer.applyLayout();
@@ -139,7 +129,6 @@ public class UMLView implements PidescoView {
 							}
 						}
 
-						System.out.println(((Label)umlClass.getChildren().get(1)).getText()+".java");
 					}
 				}
 			}
@@ -153,7 +142,6 @@ public class UMLView implements PidescoView {
 			HashMap<String, String> auxConnect = table.get(((Label)((UMLClass)entity).getChildren().get(1)).getText()+".java");
 
 			if(auxConnect!=null) {
-				//				System.out.println("Existe conexão");
 				UMLClass[] connections = new UMLClass [auxConnect.keySet().size()];
 				int i = 0;
 				for(String classToConnect: auxConnect.keySet()) {
@@ -174,40 +162,7 @@ public class UMLView implements PidescoView {
 		public IFigure getFigure(Object figure) {
 			umlclass = (UMLClass) figure;
 			umlclass.setSize(umlclass.getPreferredSize());
-			/*umlclass.addMouseListener(new MouseListener() {
-
-				@Override
-				public void mouseReleased(MouseEvent me) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void mousePressed(MouseEvent me) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void mouseDoubleClicked(MouseEvent me) {
-					// TODO Auto-generated method stub
-					UMLClass umlClass = (UMLClass)me.getSource();
-					String path = classPath.get(((Label)umlClass.getChildren().get(1)).getText()+".java");
-					File classFile;
-
-					if(path != null) {
-						System.out.println("NOT NULL");
-						classFile = new File(path);
-						editor.openFile(classFile);
-					}else {
-						System.out.println("NULL");
-						//Falta ir buscar o ficheiro da classe onde está a nested class
-					}
-
-					System.out.println(((Label)umlClass.getChildren().get(1)).getText()+".java");
-				}
-			});*/
-
+			
 			HashMap<String, String> connections = umlclass.getConnectionsList();
 
 			table.put(((Label)umlclass.getChildren().get(1)).getText()+".java", connections);
