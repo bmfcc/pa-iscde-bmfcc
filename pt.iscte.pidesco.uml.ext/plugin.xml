@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="pt.iscte.pidesco.uml.actions">
+      <action
+            buttonAction="pt.iscte.pidesco.uml.ext.UMLAction1"
+            buttonLabel="Action 1">
+      </action>
+   </extension>
+
+</plugin>
